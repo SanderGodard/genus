@@ -1,21 +1,21 @@
 // ======================================= Variables
 // ============ Colors
 
-$SidebarColor: #3E3E3E
+$SidebarBG: #171717
 //$SidebarColor: #CECECE
-$BGColor: #1D1D1D
+$MainBG: #ECECEC
 //$BGColor: #EDEDED
-$TitleColor: #303030
+$NavBG: #DFD543
 //$TitleColor: #E0E0E0
 $W: #FAFAFA
 //$W: #1D1D1D
 
+$amount: 9
 
-$amount: 3
+$Scale: scale(1.05)
 
 $Shadow: 0px 3px 5px rgba(0,0,0,0.3)
 $BigShadow: 0px 3px 9px 3px rgba(0,0,0,0.4)
-
 
 // ============ Mobile
 $MobileS: "only screen and (max-width : 334px)"
@@ -36,7 +36,6 @@ $Laptop: "only screen and (max-width : 1025px)"
 // ============ Desktop
 $Desktop: "only screen and (max-width : 1290px)"
 
-
 // ============ Transitions
 $Fast: all 0.1s ease-in-out
 $Medium: all 0.25s ease-in-out
@@ -52,29 +51,25 @@ html
   -webkit-locale: "nb" !important
   -webkit-tap-highlight-color: rgba(0,0,0,0)
 
-
 body
-  display: flex
-  justify-content: space-between
   transition: all 0s ease
-  background-color: $BGColor
+  background-color: $MainBG
   color: $W
-  font-family: 'Segoe UI', sans-serif
+  font-family: 'Roboto', 'Segoe UI', sans-serif
   min-width: 310px !important
   line-height: 1.25
+  min-height: 100vh
   width: 100% !important
   overflow-y: hidden
   overflow-x: hidden !important
   font-size: 12px
 
-
 *
   box-sizing: border-box
   margin: 0
   padding: 0
-  /*border: 1px solid blue*/
   border-collapse: collapse
-  user-select: none
+  //user-select: none
 
   &:focus
     outline: none
@@ -90,16 +85,14 @@ img
   //filter: grayscale(1)
 
 ::-moz-selection
-  background: rgba(0,0,0,0)
+  background: darken($NavBG, $amount)
   opacity: 1
   color: $W
-
 
 ::selection
-  background: rgba(0,0,0,0)
+  background: darken($NavBG, $amount)
   color: $W
   opacity: 1
-
 
 ::-webkit-scrollbar
   width: 5px
@@ -107,7 +100,6 @@ img
   right: 0
   //border-radius: 2.5px
   box-shadow: $Shadow
-
 
 ::-webkit-scrollbar-thumb
   transition: all 0.3s ease-in-out
@@ -120,325 +112,180 @@ img
 // =============================================================================================================
 
 .material
-  font-family: 'Material Icons', 'Segoe UI', sans-serif
+  font-family: 'Material Icons', 'Roboto', 'Segoe UI', sans-serif
   font-size: 1.7em
+
+body
+  display: grid
+  grid-template-areas:  "nav  nav" "sidebar  main"
+  height: 100vh
+  width: 100vw
+  overflow: hidden
+  grid-template-columns: 444px auto
+  grid-template-rows: 66px auto
+
+
+.logo
+  font-family: 'Aleo', 'Roboto', 'Segoe UI'
+  font-style: italic
+  text-transform: uppercase
+
+
+nav
+  grid-area: nav
+  background-color: $NavBG
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  font-size: 2em
+  padding: 8px 20px
+  height: 100%
+  width: 100%
+  flex-grow: 1
+  color: $W
+
+  div
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: stretch
+
+  a, span
+    margin-right: 2vw
+    display: inline-flex
+    height: 100%
+    flex-grow: 1
+    align-items: center
+    flex-flow: row nowrap
+    justify-content: space-between
+
+  .dropdown
+
+    &:after
+      padding-left: 10px
+      content: "▼"
+      font-size: 0.6em
+
+  .dropdown-container
+    position: relative
+    margin-top: -8px
+    padding-top: 8px
+
+    &:hover .menu
+      transition: $Fast
+      display: inline-flex
+      height: 200px
+
+    .menu
+      transition: $Fast
+      overflow: hidden
+      display: none
+      position: absolute
+      left: 0
+      top: 58px
+      padding: 20px
+      padding-right: 50px
+      height: 0px
+      //width: 155px
+      flex-flow: column nowrap
+      justify-content: space-between
+      align-items: flex-start
+      font-size: 0.9em
+      background-color: $NavBG
+
+
+      a
+        margin: 0
+        //margin-bottom: 1em
+        line-height: 1
+
+  .logo
+    font-size: 1.5em
+    padding-right: 2vw
+    border-right: 1px solid $W
+    margin-right: 2vw
+
+  .profile
+    margin: 0
+
+    span
+      margin-right: 12px
+
+    img
+      display: block
+      height: 100%
+      box-shadow: $Shadow
+      border-radius: 100%
 
 
 .sidebar
-  box-shadow: $BigShadow
-  background-color: $SidebarColor
-  width: 15%
-  min-width: 300px
-  max-width: 600px
-  height: 100vh
-
-  .fifty
-    width: 50%
-
-  .title
-    box-shadow: $Shadow
-    display: flex
-    width: 100%
-    align-items: center
-    background-color: $TitleColor
-    height: 95px
-    justify-content: center
-
-    span
-      display: flex
-      align-items: center
-      justify-content: center
-      font-size: 2em
-
-  .info
-    padding: 25px
-    margin: 5px 0
-    display: flex
-    align-items: flex-start
-    font-size: 1.5em
-    align-content: stretch
-    flex-flow: row nowrap
-
-    ul
-      display: flex
-      flex-flow: column nowrap
-      height: 100%
-      justify-content: space-between
-      list-style-type: none
-      align-content: stretch
-      height: calc(100vh - 95px - 50px - 10px)
-
-      li
-        margin: 0 0
-        border-bottom: 1px solid $W
-
-    .borte
-      opacity: 0.5
-      text-decoration: line-through
-
-    .poeng
-      ul
-        li
-          border-bottom: 1px solid $W
-
-          div
-            display: flex
-            justify-content: flex-end
-
-            div
-              margin: 0 0 0 50px
-
-              span
-                margin: 0 0 0 15px
-                cursor: pointer
-
-          div.borte
-            div
-              span
-                cursor: auto
-                pointer-events: none
-
-
-  &.fat
-    width: 30%
-    min-width: 500px
-    //max-width: 1200px
-    display: inline-flex
-    align-items: center
-    flex-flow: column nowrap
-    text-align: center
-
-    .info
-      padding: 0
-
-
-.antall
-  width: 15%
-  min-width: 300px
-  max-width: 600px
-  max-height: 100vh
-  text-align: right
-  padding: 15px 40px 0 0
+  grid-area: sidebar
+  background-color: $SidebarBG
+  height: 100%
+  width: 100%
+  flex-grow: 1
+  padding: 20px
   display: flex
   flex-flow: column nowrap
+  color: $W
 
   .title
+    font-size: 6em
+    text-align: center
+    width: 100%
+    margin: 3vh auto 6vh
+    text-transform: uppercase
+    font-weight: 500
+    font-stretch: semi-expanded
+
+    &:hover
+      color: $NavBG
+
+
+  .info
+    width: 80%
+    font-style: italic
+    border-bottom: 2px solid $W
+    font-size: 2.8em
+    margin-bottom: 4vh
+
+  .actions
+    width: 100%
     display: flex
-    justify-content: flex-end
-    flex-flow: row nowrap
-    font-size: 2em
+    flex-flow: column nowrap
+    align-items: flex-start
+    justify-content: flex-start
 
-    span
-      margin: 0 0 0 70px
+    button
+      transition: $Fast
+      margin-bottom: 3vh
+      padding: 20px
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      font-size: 1.7em
+      text-transform: capitalize
+      background-color: $NavBG
+      border: 0px solid $NavBG
+      cursor: pointer
+      color: $W
 
-  .recent
-    margin: 25px 0 0 0
+      &:hover
+        transition: $Fast
+        transform: $Scale
 
-    ol
-      //display: flex
-      //justify-content: flex-start
-      max-height: calc(100vh - 25px - 40px - 1.2em*1.25 - 2em*1.25)
-      overflow: auto
-      //flex-flow: column nowrap
-      position: relative
-      right: 0px
-      //list-style-position: inside
-      //list-style-position: inside
-      list-style: inside
 
-      li
-        text-align: right
-        font-size: 1.5em
-        margin: 10px 0
-        display: flex
-        flex-flow: row nowrap
-        justify-content: flex-end
+      &.faded
+        color: darken($W, $amount)
+        text-decoration: line-through
 
-        span
-          display: inline-flex
-          justify-content: flex-end
-          padding-right: 0px
-          //float: right
-          text-align: right
-          align-self: flex-end
-          right: 0px
-
-          &::after
-            float: right
-            position: relative
-            content: ""
-            text-align: left
-            display: list-item
-            list-style: outside
-            list-style: decimal
-
-          span
-            padding-right: 60px
-
-            &::after
-              content: ""
-              display: none
-
-  .hidden
-    display: none
 
 
 main
-  padding-top: 120px
-  //margin-bottom: 225px
-  //height: calc(100vh - 120px - 225px)
-  height: 100vh
+  grid-area: main
+  background-color: $MainBG
+  padding: 80px
+  height: 100%
   width: 100%
-  text-align: center
-  display: flex
-  align-items: center
-  flex-flow: column nowrap
-  justify-content: space-between
-
-  a
-    display: inline-block
-    transition: $Fast
-    box-shadow: $Shadow
-    padding: 28px 40px
-    font-size: 2em
-    background-color: $BGColor
-    border: 1px solid $SidebarColor
-
-    &:hover
-      transition: $Fast
-      box-shadow: $BigShadow
-      transform: scale(1.07)
-      background-color: $SidebarColor
-
-    &:active
-      transition: $Fast
-      box-shadow: $Shadow
-      background-color: $SidebarColor
-      transform: scale(1.05)
-
-  .name
-    display: block
-    margin-top: 170px
-    font-size: 7.5em
-    text-align: center
-
-  .quote
-    margin: auto
-    text-align: center
-    display: inline-block
-    font-size: 2em
-    margin-top: 70px
-    max-width: 600px
-    word-break: keep-all
-
-
-.reset
-  transition: $Fast
-  background-color: $SidebarColor
-  //margin: auto
-  display: inline-block
-  align-self: flex-end
-  margin: 5px 60px 0 0
-  padding: 5px
-  font-size: 1.2em
-
-  &:hover
-    transition: $Fast
-    transform: scale(1.03)
-
-  &.active
-    background-color: $TitleColor
-    border-color: $TitleColor
-
-
-.modes
-  display: inline-flex
-  align-content: center
-  align-items: center
-  justify-content: center
-  margin: 20px 10px
-
-  a
-    padding: 8px
-    align-self: flex-end
-    margin: 2px
-
-
-.plassRun
-  background-color: $BGColor
-  box-shadow: $Shadow
-  border: 1px solid $TitleColor
-  display: inline-flex
-  align-items: center
-  justify-content: center
-  align-content: center
-  transition: $Fast
-  padding: 20px 30px
-  margin: 30px 0
-  font-size: 1.8em
-  text-align: center
-
-  &:hover
-    transition: $Fast
-    box-shadow: $BigShadow
-    transform: scale(1.07)
-    background-color: $TitleColor
-
-  &:active
-    transition: $Fast
-    box-shadow: $Shadow
-    background-color: $TitleColor
-    transform: scale(1.05)
-
-
-.groupings
-  background-color: $BGColor
-  box-shadow: $Shadow
-  border: 1px solid $TitleColor
-  display: inline-flex
-  align-items: center
-  justify-content: center
-  align-content: center
-  transition: $Fast
-  padding: 14px 20px
-  font-size: 1.2em
-  text-align: center
-
-  &:hover
-    transition: $Fast
-    box-shadow: $BigShadow
-    transform: scale(1.07)
-    background-color: $TitleColor
-
-  &:active
-    transition: $Fast
-    box-shadow: $Shadow
-    background-color: $TitleColor
-    transform: scale(1.05)
-
-.Rom
-  display: flex
-  justify-content: center
-  width: 70%
-  margin: 0 auto
-  align-items: flex-start
-  flex-flow: row wrap
-  overflow: hidden
-  align-content: stretch
-  font-size: 1.4em
-
-  .Grupper
-    //flex-shrink: 1
-    //flex-grow: 1
-    margin: 10px 10px
-    display: inline-flex
-    flex-flow: row wrap
-    min-width: 50px
-    max-width: 370px
-
-    .Seter
-      width: calc(70vw / 10 * 7 / 4 - 60px)
-      border: 1px solid $SidebarColor
-      padding: 25px 10px
-      margin: 3px
-      //width: 130px
+  flex-grow: 1
+  color: $SidebarBG
