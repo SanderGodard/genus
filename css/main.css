@@ -123,6 +123,7 @@ nav {
   color: #FAFAFA;
 }
 nav div {
+  background-color: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,9 +154,6 @@ nav a, nav span {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 nav .dropdown:after {
   padding-left: 10px;
@@ -166,24 +164,29 @@ nav .dropdown-container {
   position: relative;
   margin-top: -8px;
   padding-top: 8px;
+  background-color: inherit;
 }
 nav .dropdown-container:hover .menu {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  height: 200px;
+  padding: 15px 20px;
+}
+nav .dropdown-container:hover .menu a {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  height: 200px;
 }
 nav .dropdown-container .menu {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   overflow: hidden;
-  display: none;
   position: absolute;
   left: 0;
   top: 58px;
-  padding: 20px;
+  padding: 0 20px;
   padding-right: 50px;
   height: 0px;
   -webkit-box-orient: vertical;
@@ -197,11 +200,31 @@ nav .dropdown-container .menu {
       -ms-flex-align: start;
           align-items: flex-start;
   font-size: 0.9em;
-  background-color: #DFD543;
+  background-color: inherit;
 }
 nav .dropdown-container .menu a {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  padding-right: 20px;
+  display: none;
   margin: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   line-height: 1;
+}
+nav .dropdown-container .menu2 {
+  left: auto;
+  text-align: right;
+  right: 58px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+nav .dropdown-container .menu2 a {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 20px;
 }
 nav .logo {
   font-size: 1.5em;
@@ -210,16 +233,17 @@ nav .logo {
   margin-right: 2vw;
 }
 nav .profile {
-  margin: 0;
+  margin-right: 0px;
+  text-align: right;
 }
 nav .profile span {
+  margin: 0;
   margin-right: 12px;
 }
 nav .profile img {
   display: block;
   height: 100%;
-  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  width: 50px;
   border-radius: 100%;
 }
 
@@ -276,7 +300,43 @@ nav .profile img {
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
-.sidebar .actions button {
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.arrow {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  display: inline-block;
+}
+.arrow select {
+  padding: 30px 70px 30px 55px;
+  margin: 0;
+}
+.arrow select:hover, .arrow select:focus {
+  -webkit-transform: none;
+          transform: none;
+}
+.arrow:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.arrow:after {
+  position: relative;
+  top: -4px;
+  color: #FAFAFA;
+  margin-left: -64px;
+  content: "▼";
+  font-size: 1em;
+}
+
+button, select {
+  min-width: 350px;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   margin-bottom: 3vh;
@@ -297,15 +357,21 @@ nav .profile img {
   cursor: pointer;
   color: #FAFAFA;
 }
-.sidebar .actions button:hover {
+button:hover, button:focus, select:hover, select:focus {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
-.sidebar .actions button.faded {
+button.faded, select.faded {
   color: #e3e3e3;
   text-decoration: line-through;
+}
+button option, select option {
+  padding: 20px 0;
+}
+button option[value="0"], select option[value="0"] {
+  display: none;
 }
 
 main {
@@ -318,6 +384,12 @@ main {
       -ms-flex-positive: 1;
           flex-grow: 1;
   color: #171717;
+}
+main button, main select {
+  padding: 30px 55px;
+  font-size: 2em;
+  background-color: #171717;
+  border: 0px solid #171717;
 }
 
 /*# sourceMappingURL=main.css.map */

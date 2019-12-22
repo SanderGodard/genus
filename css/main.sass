@@ -65,6 +65,7 @@ body
   font-size: 12px
 
 *
+  // border: 1px solid red
   box-sizing: border-box
   margin: 0
   padding: 0
@@ -145,6 +146,7 @@ nav
   color: $W
 
   div
+    background-color: inherit
     display: flex
     flex-flow: row nowrap
     justify-content: space-between
@@ -157,7 +159,7 @@ nav
     flex-grow: 1
     align-items: center
     flex-flow: row nowrap
-    justify-content: space-between
+    //justify-content: space-between
 
   .dropdown
 
@@ -170,20 +172,27 @@ nav
     position: relative
     margin-top: -8px
     padding-top: 8px
+    background-color: inherit
 
     &:hover .menu
       transition: $Fast
-      display: inline-flex
+      //display: inline-flex
       height: 200px
+      padding: 15px 20px
+
+      a
+        transition: $Fast
+        display: inline-flex
+
 
     .menu
       transition: $Fast
       overflow: hidden
-      display: none
+      //display: none
       position: absolute
       left: 0
       top: 58px
-      padding: 20px
+      padding: 0 20px
       padding-right: 50px
       height: 0px
       //width: 155px
@@ -191,13 +200,30 @@ nav
       justify-content: space-between
       align-items: flex-start
       font-size: 0.9em
-      background-color: $NavBG
+      background-color: inherit
 
 
       a
+        transition: $Fast
+        padding-right: 20px
+        display: none
         margin: 0
+        align-items: center
         //margin-bottom: 1em
         line-height: 1
+
+
+    .menu2
+      left: auto
+      text-align: right
+      right: 58px
+      align-items: flex-end
+
+      a
+        text-align: right
+        padding-right: 0
+        padding-left: 20px
+
 
   .logo
     font-size: 1.5em
@@ -206,15 +232,25 @@ nav
     margin-right: 2vw
 
   .profile
-    margin: 0
+    margin-right: 0px
+    // pointer-events: stroke
+    // word-break: keep-all
+    // text-overflow: clip
+    text-align: right
 
     span
+      margin: 0
       margin-right: 12px
 
     img
+      //width: calc(100% - 2px)
+      //border: 1px solid $W
       display: block
       height: 100%
-      box-shadow: $Shadow
+      // max-width: 60px
+      // min-width: 30px
+      width: 50px
+      //box-shadow: $Shadow
       border-radius: 100%
 
 
@@ -256,28 +292,74 @@ nav
     align-items: flex-start
     justify-content: flex-start
 
-    button
-      transition: $Fast
-      margin-bottom: 3vh
-      padding: 20px
-      display: inline-flex
-      align-items: center
-      justify-content: center
-      font-size: 1.7em
-      text-transform: capitalize
-      background-color: $NavBG
-      border: 0px solid $NavBG
-      cursor: pointer
-      color: $W
 
-      &:hover
-        transition: $Fast
-        transform: $Scale
+select
+  appearance: none
+
+.arrow
+  transition: $Fast
+  display: inline-block
+
+  select
+    padding: 30px 70px 30px 55px
+    margin: 0
+
+    &:hover, &:focus
+      transform: none
+
+  &:hover
+    transform: $Scale
+    transition: $Fast
+
+    &:after
+      //margin-left: -42px
+      //margin-right: -43px
+
+  &:after
+    position: relative
+    top: -4px
+    color: $W
+    margin-left: -64px
+    content: "▼"
+    font-size: 1em
 
 
-      &.faded
-        color: darken($W, $amount)
-        text-decoration: line-through
+
+button, select
+  min-width: 350px
+  transition: $Fast
+  margin-bottom: 3vh
+  padding: 20px
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  font-size: 1.7em
+  text-transform: capitalize
+  background-color: $NavBG
+  border: 0px solid $NavBG
+  cursor: pointer
+  color: $W
+
+  &:hover, &:focus
+    transition: $Fast
+    transform: $Scale
+
+
+  &.faded
+    color: darken($W, $amount)
+    text-decoration: line-through
+
+  option
+    padding: 20px 0
+    // border-top: 10px solid $SidebarBG
+
+    &[value="0"]
+      display: none
+
+      // &:after
+        padding-left: 10px
+        content: "▼"
+        font-size: 0.6em
 
 
 
@@ -289,3 +371,9 @@ main
   width: 100%
   flex-grow: 1
   color: $SidebarBG
+
+  button, select
+    padding: 30px 55px
+    font-size: 2em
+    background-color: $SidebarBG
+    border: 0px solid $SidebarBG
