@@ -357,7 +357,7 @@ button, select {
   cursor: pointer;
   color: #FAFAFA;
 }
-button:hover, button:focus, select:hover, select:focus {
+button:hover, select:hover {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   -webkit-transform: scale(1.05);

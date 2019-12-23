@@ -1,11 +1,12 @@
 <?php
-	$title = "genus | Dashboard";
+	$page = "Dashboard";
+	$title = "genus | $page";
 	include "elements/php/head.php";
 
 ?>
 <body>
 	<?php
-		$location = "dashboard";
+		$location = $page;
 		include "elements/php/nav.php";
 		include "elements/php/sidebar.php";
 	?>
@@ -21,6 +22,9 @@
 		</div>
 
 
+		<div class="modes">
+
+		</div>
 	</main>
 </body>
 </html>
