@@ -300,6 +300,9 @@ nav .profile img {
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+.sidebar button {
+  min-width: 0;
+}
 
 select {
   -webkit-appearance: none;
@@ -308,6 +311,7 @@ select {
 }
 
 .arrow {
+  padding-right: 50px;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   display: inline-block;
@@ -368,10 +372,17 @@ button.faded, select.faded {
   text-decoration: line-through;
 }
 button option, select option {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   padding: 20px 0;
 }
 button option[value="0"], select option[value="0"] {
   display: none;
+}
+button option:hover, button option:focus, select option:hover, select option:focus {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  background-color: #DFD543;
 }
 
 main {
@@ -385,7 +396,11 @@ main {
           flex-grow: 1;
   color: #171717;
 }
+main ul {
+  padding-left: calc(1em*1.25);
+}
 main button, main select {
+  text-transform: uppercase;
   padding: 30px 55px;
   font-size: 2em;
   background-color: #171717;
@@ -397,19 +412,24 @@ main .modes {
   display: -ms-flexbox;
   display: flex;
   margin: auto 0;
-  margin: 2vh -3vh 0px -3vh;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin: 7vh -3vh 0px -3vh;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  height: calc(100vh - (66px + 80px + 0px + 30px + 2vh + 30px + (2em*1.25)));
+  height: calc(100vh - (66px + 80px + 0px + 30px + 7vh + 30px + (2em*1.25)));
   overflow-y: auto;
 }
 main .modes div {
-  padding: 1vh 3vh;
+  padding: 2vh 3vh;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -438,6 +458,8 @@ main .modes div {
   }
 }
 main .modes div button {
+  padding-left: 0;
+  padding-right: 0;
   min-width: 80%;
   max-width: 80%;
   margin: 0;

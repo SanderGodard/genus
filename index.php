@@ -24,23 +24,53 @@
 
 		<div class="modes">
 			<div>
-				<button type="button" name="Random">Random</button>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<button type="button" name="Random">Pick random student</button>
+				<span>
+					Selects a random student from the chosen class.<br>
+					This is an amazing tool for getting students to answer questions, and be more active in the discussions.<br>
+					Great for:<br>
+					<ul>
+						<li>Choosing someone to answer the given question in an inactive class</li>
+						<li>Adding suspense and excitement to the lectures</li>
+				 </ul>
+				</span>
 			</div>
 
 			<div>
-				<button type="button" name="Order">Order</button>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<button type="button" name="Order">Students in random order</button>
+				<span>
+					Spits out all the students in a given class in a random order. <br>
+					Great for:<br>
+					<ul>
+						<li>Choosing who should present first</li>
+						<li>This way everyone would have to answer the question eventually, instead of true randomness like the one to the left</li>
+					</ul>
+				</span>
 			</div>
 
 			<div>
-				<button type="button" name="Seating">Seating</button>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<button type="button" name="Seating">Random seating for class</button>
+				<span>
+					Choose from a few different seating arrangements. And then this mode will seat the students randomly. This leads to the students getting to know each other. Not the same monotone work-habits.<br>
+					Great for:<br>
+					<ul>
+						<li>Saving time on manually arranging students' seating</li>
+						<li>Randomness so the students can't complain</li>
+					</ul>
+				</span>
 			</div>
-			
+
 			<div>
-				<button type="button" name="Quiz">Quiz</button>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<button type="button" name="Quiz">Enter pop-quiz mode</button>
+				<span>
+					Here you can have a few selected students go against each other in answering your questions.<br>
+					This can be used both as motivation by getting points, and to get all students engaged in the class, and learn in a fun way.<br>
+					We have:
+					<ul>
+						<li>A point system to keep track</li>
+						<li>A built in timer to keep everyone on edge</li>
+					</ul>
+				</span>
 			</div>
 		</div>
 	</main>

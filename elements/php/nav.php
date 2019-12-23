@@ -17,7 +17,7 @@
       <?php
         $fname = "Sander";
         $lname = "Godard";
-        $pfp = "images/favicon.png";
+        $pfp = "images/pfp.png";
         echo "<span class='dropdown'>$lname, $fname</span>";
         echo "<img src='$pfp' alt='Profile'>";
        ?>

@@ -292,11 +292,15 @@ nav
     align-items: flex-start
     justify-content: flex-start
 
+  button
+    min-width: 0
+
 
 select
   appearance: none
 
 .arrow
+  padding-right: 50px
   transition: $Fast
   display: inline-block
 
@@ -350,6 +354,7 @@ button, select
     text-decoration: line-through
 
   option
+    transition: $Fast
     padding: 20px 0
     // border-top: 10px solid $SidebarBG
 
@@ -360,6 +365,9 @@ button, select
         padding-left: 10px
         content: "▼"
         font-size: 0.6em
+    &:hover, &:focus
+      transition: $Fast
+      background-color: $NavBG
 
 
 
@@ -372,7 +380,11 @@ main
   flex-grow: 1
   color: $SidebarBG
 
+  ul
+    padding-left: calc(1em*1.25)
+
   button, select
+    text-transform: uppercase
     padding: 30px 55px
     font-size: 2em
     background-color: $SidebarBG
@@ -383,15 +395,17 @@ main
     width: calc(100% + 6vh)
     display: flex
     margin: auto 0
-    margin: 2vh -3vh 0px -3vh
-    align-items: center
-    // justify-content: space-between
+    margin: 7vh -3vh 0px -3vh
+    align-items: flex-start
+    // justify-content: sp
+    justify-content: space-between
+    align-content: flex-start
     flex-flow: row wrap
-    height: calc(100vh - (66px + 80px + 0px + 30px + 2vh + 30px + (2em*1.25)))
+    height: calc(100vh - (66px + 80px + 0px + 30px + 7vh + 30px + (2em*1.25)))
     overflow-y: auto
 
     div
-      padding: 1vh 3vh
+      padding: 2vh 3vh
       display: inline-flex
       flex-flow: column nowrap
       align-items: center
@@ -410,6 +424,8 @@ main
 
 
       button
+        padding-left: 0
+        padding-right: 0
         min-width: 80%
         max-width: 80%
         // min-width: calc(250px * 80%)
