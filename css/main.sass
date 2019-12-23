@@ -366,7 +366,7 @@ button, select
 main
   grid-area: main
   background-color: $MainBG
-  padding: 80px
+  padding: 80px 80px 20px
   height: 100%
   width: 100%
   flex-grow: 1
@@ -377,3 +377,50 @@ main
     font-size: 2em
     background-color: $SidebarBG
     border: 0px solid $SidebarBG
+
+
+  .modes
+    width: calc(100% + 6vh)
+    display: flex
+    margin: auto 0
+    margin: 2vh -3vh 0px -3vh
+    align-items: center
+    // justify-content: space-between
+    flex-flow: row wrap
+    height: calc(100vh - (66px + 80px + 0px + 30px + 2vh + 30px + (2em*1.25)))
+    overflow-y: auto
+
+    div
+      padding: 1vh 3vh
+      display: inline-flex
+      flex-flow: column nowrap
+      align-items: center
+      justify-content: flex-start
+      max-width: 100%
+      width: 33%
+      min-width: 33%
+      // max-width: 400px
+      // min-width: 250px
+
+      @media #{$Laptop}
+        width: 50%
+
+      @media #{$TabletM}
+        width: 100%
+
+
+      button
+        min-width: 80%
+        max-width: 80%
+        // min-width: calc(250px * 80%)
+        // max-width: calc(400px * 80%)
+        margin: 0
+        width: 80%
+
+      span
+        box-shadow: $Shadow
+        width: 100%
+        display: inline-block
+        position: relative
+        margin-top: -30px
+        padding: 50px 20px 20px
