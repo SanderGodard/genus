@@ -22,7 +22,7 @@ body {
   width: 100% !important;
   overflow-y: hidden;
   overflow-x: hidden !important;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 * {
@@ -81,7 +81,7 @@ img {
 
 .material {
   font-family: "Material Icons", "Roboto", "Segoe UI", sans-serif;
-  font-size: 1.7em;
+  font-size: 1.3em;
 }
 
 body {
@@ -113,7 +113,7 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 8px 20px;
   height: 100%;
   width: 100%;
@@ -158,7 +158,7 @@ nav a, nav span {
 nav .dropdown:after {
   padding-left: 10px;
   content: "▼";
-  font-size: 0.6em;
+  font-size: 0.5em;
 }
 nav .dropdown-container {
   position: relative;
@@ -199,7 +199,7 @@ nav .dropdown-container .menu {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  font-size: 0.9em;
+  font-size: 0.7em;
   background-color: inherit;
 }
 nav .dropdown-container .menu a {
@@ -227,7 +227,7 @@ nav .dropdown-container .menu2 a {
   padding-left: 20px;
 }
 nav .logo {
-  font-size: 1.5em;
+  font-size: 1.4em;
   padding-right: 2vw;
   border-right: 1px solid #FAFAFA;
   margin-right: 2vw;
@@ -265,8 +265,11 @@ nav .profile img {
           flex-flow: column nowrap;
   color: #FAFAFA;
 }
+.sidebar a button {
+  margin: 0;
+}
 .sidebar .title {
-  font-size: 6em;
+  font-size: 4.5em;
   text-align: center;
   width: 100%;
   margin: 3vh auto 6vh;
@@ -276,13 +279,6 @@ nav .profile img {
 }
 .sidebar .title:hover {
   color: #DFD543;
-}
-.sidebar .info {
-  width: 80%;
-  font-style: italic;
-  border-bottom: 2px solid #FAFAFA;
-  font-size: 2.8em;
-  margin-bottom: 4vh;
 }
 .sidebar .actions {
   width: 100%;
@@ -299,6 +295,34 @@ nav .profile img {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+.sidebar .actions h1 {
+  width: 80%;
+  font-style: italic;
+  border-bottom: 2px solid #FAFAFA;
+  font-size: 2.1em;
+  margin-bottom: 4vh;
+}
+.sidebar .actions h2 {
+  width: 45px;
+  word-break: keep-all;
+  word-wrap: normal;
+  font-style: italic;
+  border-bottom: 1px solid #FAFAFA;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  font-style: italic;
+  font-weight: 500;
+}
+.sidebar .actions table {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.sidebar .actions table td {
+  font-size: 1em;
+  padding-bottom: 20px;
+  width: 40%;
+  text-align: left;
 }
 .sidebar button {
   min-width: 0;
@@ -336,7 +360,7 @@ select {
   color: #FAFAFA;
   margin-left: -64px;
   content: "▼";
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 button, select {
@@ -354,7 +378,7 @@ button, select {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 1.7em;
+  font-size: 1.4em;
   text-transform: capitalize;
   background-color: #DFD543;
   border: 0px solid #DFD543;
@@ -396,13 +420,18 @@ main {
           flex-grow: 1;
   color: #171717;
 }
+main h1 {
+  margin-bottom: 2vh;
+  border-bottom: 1px solid #171717;
+  display: inline-block;
+}
 main ul {
   padding-left: calc(1em*1.25);
 }
 main button, main select {
   text-transform: uppercase;
   padding: 30px 55px;
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: #171717;
   border: 0px solid #171717;
 }
@@ -425,7 +454,7 @@ main .modes {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  height: calc(100vh - (66px + 80px + 0px + 30px + 7vh + 30px + (2em*1.25)));
+  height: calc(100vh - (66px + 80px + 0px + 30px + 7vh + 30px + (1.5em*1.25)));
   overflow-y: auto;
 }
 main .modes div {
@@ -444,7 +473,7 @@ main .modes div {
       -ms-flex-pack: start;
           justify-content: flex-start;
   max-width: 100%;
-  width: 33%;
+  width: 50%;
   min-width: 33%;
 }
 @media only screen and (max-width: 1025px) {
@@ -462,10 +491,13 @@ main .modes div button {
   padding-right: 0;
   min-width: 80%;
   max-width: 80%;
+  z-index: 3;
   margin: 0;
   width: 80%;
 }
 main .modes div span {
+  background-color: #FAFAFA;
+  z-index: 1;
   -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
   width: 100%;
@@ -473,6 +505,148 @@ main .modes div span {
   position: relative;
   margin-top: -30px;
   padding: 50px 20px 20px;
+}
+main .classes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  width: calc(100vw - 160px - 444px);
+  overflow-x: auto;
+  -webkit-scroll-snap-type: x;
+      -ms-scroll-snap-type: x;
+          scroll-snap-type: x;
+  -webkit-scroll-snap-points-x: repeat(calc(350px + 80px));
+      -ms-scroll-snap-points-x: repeat(calc(350px + 80px));
+          scroll-snap-points-x: repeat(calc(350px + 80px));
+  -webkit-scroll-snap-type: x mandatory;
+      -ms-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+main .classes.drar {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -webkit-scroll-snap-points-x: none;
+      -ms-scroll-snap-points-x: none;
+          scroll-snap-points-x: none;
+  -webkit-scroll-snap-type: none;
+      -ms-scroll-snap-type: none;
+          scroll-snap-type: none;
+}
+main .classes::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+main .classes::-webkit-scrollbar-thumb {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+main .classes .class {
+  scroll-snap-align: start;
+  margin-right: 80px;
+  height: calc(100vh - 66px - 80px - 80px);
+  width: 320px;
+  min-width: 320px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: #FAFAFA;
+}
+main .classes .class > * {
+  width: 100%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main .classes .class .header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5em;
+  color: #FAFAFA;
+  background-color: #171717;
+  text-transform: uppercase;
+}
+main .classes .class .students {
+  padding: 0px 20px 0px;
+  margin-top: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: block;
+  overflow: auto;
+}
+main .classes .class .students p {
+  display: block;
+  margin-bottom: 10px;
+}
+main .classes .class .fot {
+  padding-top: 0;
+}
+main .classes .class .choices {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-top: 1px solid #171717;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding-top: 20px;
+}
+main .classes .class .choices button {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  opacity: 0.5;
+  width: 28px;
+  height: 28px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #FAFAFA;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+main .classes .class .choices button img {
+  margin: 0;
+  width: 28px;
+}
+main .classes .class .choices button:hover {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  opacity: 0.9;
+}
+main .classes .class .choices div button {
+  margin-left: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

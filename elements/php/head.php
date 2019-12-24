@@ -20,7 +20,8 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#DFD543">
 
 	<link rel="stylesheet" href="css/main.css">
+	<script defer src="js/horiscroll.js"></script>
 	<link href="http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500|Aleo:400italic" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
 </head>

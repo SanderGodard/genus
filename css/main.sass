@@ -62,7 +62,7 @@ body
   width: 100% !important
   overflow-y: hidden
   overflow-x: hidden !important
-  font-size: 12px
+  font-size: 16px
 
 *
   // border: 1px solid red
@@ -114,7 +114,7 @@ img
 
 .material
   font-family: 'Material Icons', 'Roboto', 'Segoe UI', sans-serif
-  font-size: 1.7em
+  font-size: 1.3em
 
 body
   display: grid
@@ -138,7 +138,7 @@ nav
   display: flex
   flex-flow: row nowrap
   justify-content: space-between
-  font-size: 2em
+  font-size: 1.5em
   padding: 8px 20px
   height: 100%
   width: 100%
@@ -166,7 +166,7 @@ nav
     &:after
       padding-left: 10px
       content: "▼"
-      font-size: 0.6em
+      font-size: 0.5em
 
   .dropdown-container
     position: relative
@@ -199,7 +199,7 @@ nav
       flex-flow: column nowrap
       justify-content: space-between
       align-items: flex-start
-      font-size: 0.9em
+      font-size: 0.7em
       background-color: inherit
 
 
@@ -209,7 +209,7 @@ nav
         display: none
         margin: 0
         align-items: center
-        //margin-bottom: 1em
+        //margin-bottom: 0.8em
         line-height: 1
 
 
@@ -226,7 +226,7 @@ nav
 
 
   .logo
-    font-size: 1.5em
+    font-size: 1.4em
     padding-right: 2vw
     border-right: 1px solid $W
     margin-right: 2vw
@@ -265,8 +265,12 @@ nav
   flex-flow: column nowrap
   color: $W
 
+  a
+    button
+      margin: 0
+
   .title
-    font-size: 6em
+    font-size: 4.5em
     text-align: center
     width: 100%
     margin: 3vh auto 6vh
@@ -278,12 +282,6 @@ nav
       color: $NavBG
 
 
-  .info
-    width: 80%
-    font-style: italic
-    border-bottom: 2px solid $W
-    font-size: 2.8em
-    margin-bottom: 4vh
 
   .actions
     width: 100%
@@ -291,6 +289,36 @@ nav
     flex-flow: column nowrap
     align-items: flex-start
     justify-content: flex-start
+
+    h1
+      width: 80%
+      font-style: italic
+      border-bottom: 2px solid $W
+      font-size: 2.1em
+      margin-bottom: 4vh
+
+
+    h2
+      width: 45px
+      word-break: keep-all
+      word-wrap: normal
+      font-style: italic
+      border-bottom: 1px solid $W
+      font-size: 1.3em
+      margin-bottom: 15px
+      font-style: italic
+      font-weight: 500
+
+    table
+      margin-bottom: 20px
+      width: 100%
+
+      td
+        font-size: 1em
+        padding-bottom: 20px
+        width: 40%
+        text-align: left
+
 
   button
     min-width: 0
@@ -325,7 +353,7 @@ select
     color: $W
     margin-left: -64px
     content: "▼"
-    font-size: 1em
+    font-size: 0.8em
 
 
 
@@ -337,7 +365,7 @@ button, select
   display: inline-flex
   align-items: center
   justify-content: center
-  font-size: 1.7em
+  font-size: 1.4em
   text-transform: capitalize
   background-color: $NavBG
   border: 0px solid $NavBG
@@ -380,13 +408,19 @@ main
   flex-grow: 1
   color: $SidebarBG
 
+  h1
+    margin-bottom: 2vh
+    border-bottom: 1px solid $SidebarBG
+    display: inline-block
+    // text-decoration: underline
+
   ul
     padding-left: calc(1em*1.25)
 
   button, select
     text-transform: uppercase
     padding: 30px 55px
-    font-size: 2em
+    font-size: 1.5em
     background-color: $SidebarBG
     border: 0px solid $SidebarBG
 
@@ -401,7 +435,7 @@ main
     justify-content: space-between
     align-content: flex-start
     flex-flow: row wrap
-    height: calc(100vh - (66px + 80px + 0px + 30px + 7vh + 30px + (2em*1.25)))
+    height: calc(100vh - (66px + 80px + 0px + 30px + 7vh + 30px + (1.5em*1.25)))
     overflow-y: auto
 
     div
@@ -411,7 +445,7 @@ main
       align-items: center
       justify-content: flex-start
       max-width: 100%
-      width: 33%
+      width: 50%
       min-width: 33%
       // max-width: 400px
       // min-width: 250px
@@ -428,15 +462,124 @@ main
         padding-right: 0
         min-width: 80%
         max-width: 80%
+        z-index: 3
         // min-width: calc(250px * 80%)
         // max-width: calc(400px * 80%)
         margin: 0
         width: 80%
 
       span
+        background-color: $W
+        z-index: 1
         box-shadow: $Shadow
         width: 100%
         display: inline-block
         position: relative
         margin-top: -30px
         padding: 50px 20px 20px
+
+
+  .classes
+    display: flex
+    flex-flow: row nowrap
+    width: calc(100vw - 160px - 444px)
+    //justify-content: space-evenly
+    overflow-x: auto
+    scroll-snap-type: x
+    scroll-snap-points-x: repeat(calc(350px + 80px))
+    scroll-snap-type: x mandatory
+    position: relative
+    user-select: none
+    cursor: pointer
+
+    &.drar
+      //background: rgba(255,255,255,0.3)
+      cursor: grabbing
+      scroll-snap-points-x: none
+      scroll-snap-type: none
+
+    &::-webkit-scrollbar
+      width: 0px
+      height: 0px
+      display: none
+
+    &::-webkit-scrollbar-thumb
+      width: 0px
+      height: 0px
+      display: none
+
+
+
+    .class
+      scroll-snap-align: start
+      margin-right: 80px
+      height: calc(100vh - 66px - 80px - 80px)
+      // height: calc(100% - 80px)
+      width: 320px
+      min-width: 320px
+      display: inline-flex
+      flex-flow: column nowrap
+      align-items: flex-start
+      background-color: $W
+
+      & > *
+        width: 100%
+        padding: 20px
+        display: flex
+
+      .header
+        align-items: center
+        justify-content: center
+        font-size: 1.5em
+        color: $W
+        background-color: $SidebarBG
+        text-transform: uppercase
+
+      .students
+        padding: 0px 20px 0px
+        margin-top: 20px
+        flex-grow: 1
+        display: block
+        overflow: auto
+
+        p
+          display: block
+          margin-bottom: 10px
+
+
+      .fot
+        padding-top: 0
+
+      .choices
+        display: inline-flex
+        border-top: 1px solid $SidebarBG
+        justify-content: space-between
+        width: 100%
+        padding-top: 20px
+
+
+        button
+          transition: $Fast
+          opacity: .5
+          width: 28px
+          height: 28px
+          display: inline-flex
+          align-items: center
+          justify-content: center
+          background-color: $W
+          padding: 0
+          margin: 0
+          min-width: 0
+
+          img
+            margin: 0
+            width: 28px
+
+          &:hover
+            transition: $Fast
+            opacity: .9
+
+        div
+
+          button
+            margin-left: 20px
