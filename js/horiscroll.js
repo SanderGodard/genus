@@ -1,36 +1,36 @@
-// if (document.getElementById("Slider")) {
+if (document.getElementById("Slider")) {
   // console.log("ja?");
-  // juletre = document.getElementsByClassName("classes")[0];
-  juletre = document.getElementById("Slider");
+  // container = document.getElementsByClassName("classes")[0];
+  container = document.getElementById("Slider");
 
   var isDown = false;
   let startX;
   let scrollLeft;
 
-  juletre.addEventListener('mousedown', (e) => {
+  container.addEventListener('mousedown', (e) => {
     isDown = true;
-    juletre.classList.add('drar');
+    container.classList.add('drar');
     //e.preventDefault();
-    startX = e.pageX - juletre.offsetLeft;
-    scrollLeft = juletre.scrollLeft;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
   });
-  juletre.addEventListener('mouseleave', (e) => {
+  container.addEventListener('mouseleave', (e) => {
     isDown = false;
     // e.preventDefault();
-    juletre.classList.remove('drar');
+    container.classList.remove('drar');
   });
-  juletre.addEventListener('mouseup', (e) => {
+  container.addEventListener('mouseup', (e) => {
     isDown = false;
     // e.preventDefault();
-    juletre.classList.remove('drar');
+    container.classList.remove('drar');
   });
-  juletre.addEventListener('mousemove', (e) => {
+  container.addEventListener('mousemove', (e) => {
     if(!isDown) return;
     // e.preventDefault();
     // document.body.preventDefault();
 
-    const x = e.pageX - juletre.offsetLeft;
+    const x = e.pageX - container.offsetLeft;
     const walk = (x - startX) * 1;
-    juletre.scrollLeft = scrollLeft - walk;
+    container.scrollLeft = scrollLeft - walk;
   });
-// }
+}

@@ -23,3 +23,7 @@
     }
   ?>
 </table>
+
+<div class="center">
+  <button type="button" class="dark" name="addClass" onclick="addClass()">Add class</button>
+</div>

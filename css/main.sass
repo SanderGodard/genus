@@ -200,6 +200,7 @@ nav
       justify-content: space-between
       align-items: flex-start
       font-size: 0.7em
+      z-index: 5
       background-color: inherit
 
 
@@ -260,10 +261,18 @@ nav
   height: 100%
   width: 100%
   flex-grow: 1
-  padding: 20px
+  padding: 20px 20px 80px 20px
   display: flex
   flex-flow: column nowrap
   color: $W
+
+  .center
+    width: 100%
+    display: flex
+    flex-grow: 1
+    flex-flow: column nowrap
+    justify-content: flex-end
+    align-items: center
 
   a
     button
@@ -282,13 +291,13 @@ nav
       color: $NavBG
 
 
-
   .actions
     width: 100%
     display: flex
+    flex-grow: 1
     flex-flow: column nowrap
-    align-items: flex-start
-    justify-content: flex-start
+    // align-items: flex-start
+    //justify-content: flex-start
 
     h1
       width: 80%
@@ -322,6 +331,17 @@ nav
 
   button
     min-width: 0
+    display: inline-flex
+    max-width: fit-content
+
+    &.dark
+      background-color: $SidebarBG
+      border: 1px solid $W
+      text-transform: uppercase
+      min-width: 70%
+      width: 80%
+      max-width: 100%
+      margin: 0
 
 
 select
@@ -583,3 +603,77 @@ main
 
           button
             margin-left: 20px
+
+
+input
+  border: 1px solid $SidebarBG
+  font-size: 1.2em
+  display: inline-block
+  margin-bottom: 2vh
+  padding: 20px
+
+
+.modalWrapper
+  transition: $Fast
+  display: flex
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  width: 100vw
+  height: 100vh
+
+  .bg
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100vw
+    height: 100vh
+    background-color: $SidebarBG
+    background-color: rgba(0,0,0,0.4)
+    z-index: 10
+
+  .modal
+    z-index: 11
+    padding: 0px
+    background-color: $W
+    color: $SidebarBG
+    display: inline-flex
+    flex-flow: column nowrap
+
+    .tittel
+      width: 100%
+      padding: 20px
+      align-items: center
+      justify-content: center
+      display: inline-flex
+      background-color: $SidebarBG
+      color: $W
+      font-size: 1.5em
+      margin-bottom: 2vh
+
+    form
+      padding: 20px
+      display: flex
+      width: 100%
+      flex-flow: row wrap
+      align-items: flex-start
+      justify-content: space-between
+
+      input
+        width: 100%
+
+      button
+        margin-bottom: 0
+        display: inline-block
+        min-width: 0
+        width: 45%
+        background-color: $SidebarBG
+
+        &.cancel
+          background-color: $NavBG
