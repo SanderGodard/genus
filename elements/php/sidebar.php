@@ -3,6 +3,8 @@
     <?php
       if ($page == "Dashboard") {
         echo "Dash<br>board";
+      } elseif (isset($class) && $page == "Edit " . $class) {
+        echo $class;
       } else {
         echo $page;
       }
@@ -25,6 +27,10 @@
 
         case 'Logged out':
           include "side/logout.php";
+          break;
+
+        case 'Edit ' . $class:
+          include "side/edit.php";
           break;
 
         default:

@@ -1,4 +1,4 @@
-function addClass() {
+function makeModal() {
   wrapper = document.createElement("div");
   wrapper.classList.add("modalWrapper");
   bg = document.createElement("div");
@@ -9,9 +9,19 @@ function addClass() {
   // modal.innerHTML = "Ikke lagt til enda";
   header = document.createElement("div");
   header.classList.add("tittel");
-  header.innerHTML = "Add Class";
   form = document.createElement("form");
   form.setAttribute("method", "post");
+}
+
+function modalOff() {
+  modal = document.getElementsByClassName("modalWrapper")[0];
+  modal.remove();
+}
+
+function addClass() {
+  // this.preventDefault();
+  makeModal();
+  header.innerHTML = "Add Class";
   form.setAttribute("action", "myClasses/");
   input = document.createElement("input");
   input.setAttribute("type", "text");
@@ -39,7 +49,32 @@ function addClass() {
   form.appendChild(btn);
 }
 
-function modalOff() {
-  modal = document.getElementsByClassName("modalWrapper")[0];
-  modal.remove();
+function delClass(name) {
+  // this.preventDefault();
+  makeModal();
+  header.innerHTML = "Delete " + name + "?";
+  form.setAttribute("action", "myClasses/");
+
+  text = document.createElement("span");
+  text.innerHTML = "This action will be permanent.<br>Are you sure you really want to <i><b>delete 2IKT-SK</b></i>?";
+  cancel = document.createElement("button");
+  cancel.setAttribute("type", "button");
+  cancel.setAttribute("name", "cancel");
+  cancel.setAttribute("onclick", "modalOff()");
+  cancel.classList.add("cancel");
+  cancel.innerHTML = "Cancel";
+  btn = document.createElement("button");
+  btn.setAttribute("type", "submit");
+  btn.setAttribute("name", "delete");
+  btn.innerHTML = "Delete";
+  // form.classList.add("tittel");
+
+  document.body.appendChild(wrapper);
+  wrapper.appendChild(bg);
+  wrapper.appendChild(modal);
+  modal.appendChild(header);
+  modal.appendChild(form);
+  form.appendChild(text);
+  form.appendChild(cancel);
+  form.appendChild(btn);
 }

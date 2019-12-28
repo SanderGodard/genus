@@ -52,10 +52,10 @@ html
   -webkit-tap-highlight-color: rgba(0,0,0,0)
 
 body
+  counter-reset: line-counter
   transition: all 0s ease
   background-color: $MainBG
   color: $W
-  font-family: 'Roboto', 'Segoe UI', sans-serif
   min-width: 310px !important
   line-height: 1.25
   min-height: 100vh
@@ -65,6 +65,7 @@ body
   font-size: 16px
 
 *
+  font-family: 'Segoe UI', 'Roboto', sans-serif
   // border: 1px solid red
   box-sizing: border-box
   margin: 0
@@ -274,6 +275,20 @@ nav
     justify-content: flex-end
     align-items: center
 
+    form
+      width: 100%
+      margin: 0
+
+    button
+      text-transform: uppercase
+      min-width: calc(50% - 3px) !important
+      width: calc(50% - 3px) !important
+      margin: 0 !important
+
+      &.dark
+        min-width: calc(50% - 3px) !important
+        width: calc(50% - 3px) !important
+
   a
     button
       margin: 0
@@ -376,7 +391,6 @@ select
     font-size: 0.8em
 
 
-
 button, select
   min-width: 350px
   transition: $Fast
@@ -385,7 +399,7 @@ button, select
   display: inline-flex
   align-items: center
   justify-content: center
-  font-size: 1.4em
+  font-size: 1em
   text-transform: capitalize
   background-color: $NavBG
   border: 0px solid $NavBG
@@ -530,79 +544,101 @@ main
 
 
 
-    .class
-      scroll-snap-align: start
-      margin-right: 80px
-      height: calc(100vh - 66px - 80px - 80px)
-      // height: calc(100% - 80px)
-      width: 320px
-      min-width: 320px
-      display: inline-flex
-      flex-flow: column nowrap
-      align-items: flex-start
+  .class
+    box-shadow: $Shadow
+    scroll-snap-align: start
+    margin-right: 80px
+    height: calc(100vh - 66px - 80px - 80px)
+    // height: calc(100% - 80px)
+    width: 320px
+    min-width: 320px
+    display: inline-flex
+    flex-flow: column nowrap
+    align-items: flex-start
+    background-color: $W
+
+    & > *
+      width: 100%
+      padding: 20px
+      display: flex
+
+    .header
+      align-items: center
+      justify-content: center
+      font-size: 1.5em
+      color: $W
+      background-color: $SidebarBG
+      text-transform: uppercase
+
+    .students
+      padding: 0px 20px 0px
+      margin-top: 20px
+      flex-grow: 1
+      display: block
+      overflow: auto
       background-color: $W
 
-      & > *
-        width: 100%
-        padding: 20px
-        display: flex
-
-      .header
-        align-items: center
-        justify-content: center
-        font-size: 1.5em
-        color: $W
-        background-color: $SidebarBG
-        text-transform: uppercase
-
-      .students
-        padding: 0px 20px 0px
-        margin-top: 20px
-        flex-grow: 1
+      p
         display: block
-        overflow: auto
+        margin-bottom: 10px
+
+      &[contenteditable="true"]
+        padding-bottom: 20px
+        padding-left: 40px
 
         p
-          display: block
-          margin-bottom: 10px
+          position: relative
+
+          &::before
+            // right: 0
+            top: 3px
+            width: 2em
+            bottom: 0
+            left: -3em
+            font-size: .7em
+            text-align: right
+            color: lighten($SidebarBG, $amount)
+            counter-increment: line-counter 1
+            content: counter(line-counter)
+            position: absolute
 
 
-      .fot
-        padding-top: 0
+    .fot
+      padding-top: 0
 
-      .choices
+    .choices
+      display: inline-flex
+      border-top: 1px solid $SidebarBG
+      justify-content: space-between
+      width: 100%
+      padding-top: 20px
+
+
+      button
+        transition: $Fast
+        opacity: .5
+        width: 28px
+        height: 28px
         display: inline-flex
-        border-top: 1px solid $SidebarBG
-        justify-content: space-between
-        width: 100%
-        padding-top: 20px
+        align-items: center
+        justify-content: center
+        background-color: $W
+        padding: 0
+        margin: 0
+        min-width: 0
 
+        img
+          margin: 0
+          width: 28px
+
+        &:hover
+          transition: $Fast
+          opacity: .9
+
+      div
 
         button
-          transition: $Fast
-          opacity: .5
-          width: 28px
-          height: 28px
-          display: inline-flex
-          align-items: center
-          justify-content: center
-          background-color: $W
-          padding: 0
-          margin: 0
-          min-width: 0
-
-          img
-            margin: 0
-            width: 28px
-
-          &:hover
-            transition: $Fast
-            opacity: .9
-
-        div
-
-          button
-            margin-left: 20px
+          margin-left: 20px
 
 
 input
@@ -673,6 +709,7 @@ input
         display: inline-block
         min-width: 0
         width: 45%
+        margin-top: 6vh
         background-color: $SidebarBG
 
         &.cancel
