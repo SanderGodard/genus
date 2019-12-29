@@ -26,17 +26,48 @@ function addClass() {
   input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("name", "className");
-  input.setAttribute("placeholder", "Name of the class. eg: '2020 AP PHYS'");
+  input.setAttribute("placeholder", "Name of the new class. eg: '2020 AP PHYS'");
   cancel = document.createElement("button");
   cancel.setAttribute("type", "button");
   cancel.setAttribute("name", "cancel");
   cancel.setAttribute("onclick", "modalOff()");
-  cancel.classList.add("cancel");
   cancel.innerHTML = "Cancel";
   btn = document.createElement("button");
+  btn.classList.add("cancel");
   btn.setAttribute("type", "submit");
   btn.setAttribute("name", "add");
   btn.innerHTML = "Add";
+  // form.classList.add("tittel");
+
+  document.body.appendChild(wrapper);
+  wrapper.appendChild(bg);
+  wrapper.appendChild(modal);
+  modal.appendChild(header);
+  modal.appendChild(form);
+  form.appendChild(input);
+  form.appendChild(cancel);
+  form.appendChild(btn);
+}
+
+function dupClass(name) {
+  // this.preventDefault();
+  makeModal();
+  header.innerHTML = "Duplicate class " + name + "?";
+  form.setAttribute("action", "myClasses/");
+  input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.setAttribute("name", "className");
+  input.setAttribute("placeholder", "Name of the new class. eg: '2020 AP PHYS'");
+  cancel = document.createElement("button");
+  cancel.setAttribute("type", "button");
+  cancel.setAttribute("name", "cancel");
+  cancel.setAttribute("onclick", "modalOff()");
+  cancel.innerHTML = "Cancel";
+  btn = document.createElement("button");
+  btn.classList.add("cancel");
+  btn.setAttribute("type", "submit");
+  btn.setAttribute("name", "duplicate");
+  btn.innerHTML = "Duplicate";
   // form.classList.add("tittel");
 
   document.body.appendChild(wrapper);
@@ -67,6 +98,35 @@ function delClass(name) {
   btn.setAttribute("type", "submit");
   btn.setAttribute("name", "delete");
   btn.innerHTML = "Delete";
+  // form.classList.add("tittel");
+
+  document.body.appendChild(wrapper);
+  wrapper.appendChild(bg);
+  wrapper.appendChild(modal);
+  modal.appendChild(header);
+  modal.appendChild(form);
+  form.appendChild(text);
+  form.appendChild(cancel);
+  form.appendChild(btn);
+}
+function apply(name) {
+  // this.preventDefault();
+  makeModal();
+  header.innerHTML = "Apply changes to " + name + "?";
+  form.setAttribute("action", "edit/?class=" + name);
+
+  text = document.createElement("span");
+  text.innerHTML = "If you have changed any students the seating will be randomized again.<br>This action will be permanent.<br>Do you want to make these changes?";
+  cancel = document.createElement("button");
+  cancel.setAttribute("type", "button");
+  cancel.setAttribute("name", "cancel");
+  cancel.setAttribute("onclick", "modalOff()");
+  cancel.innerHTML = "Cancel";
+  btn = document.createElement("button");
+  btn.classList.add("cancel");
+  btn.setAttribute("type", "submit");
+  btn.setAttribute("name", "apply");
+  btn.innerHTML = "Apply";
   // form.classList.add("tittel");
 
   document.body.appendChild(wrapper);

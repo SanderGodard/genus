@@ -156,6 +156,9 @@ nav a, nav span {
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
 }
+nav .dropdown {
+  margin-right: 0;
+}
 nav .dropdown:after {
   padding-left: 10px;
   content: "▼";
@@ -163,8 +166,9 @@ nav .dropdown:after {
 }
 nav .dropdown-container {
   position: relative;
-  margin-top: -8px;
-  padding-top: 8px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   background-color: inherit;
 }
 nav .dropdown-container:hover .menu {
@@ -186,7 +190,7 @@ nav .dropdown-container .menu {
   overflow: hidden;
   position: absolute;
   left: 0;
-  top: 58px;
+  top: 50px;
   padding: 0 20px;
   padding-right: 50px;
   height: 0px;
@@ -828,7 +832,7 @@ input {
   background-color: #DFD543;
 }
 
-.nrbtn {
+.nrbtn form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -858,6 +862,7 @@ input {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  overflow-y: auto visible;
 }
 .seating .seats {
   margin-top: 30px;
@@ -908,6 +913,10 @@ input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .seating .seats .sete.empty {
   opacity: 0.5;

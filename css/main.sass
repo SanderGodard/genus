@@ -163,6 +163,7 @@ nav
     //justify-content: space-between
 
   .dropdown
+    margin-right: 0
 
     &:after
       padding-left: 10px
@@ -171,8 +172,9 @@ nav
 
   .dropdown-container
     position: relative
-    margin-top: -8px
-    padding-top: 8px
+    // margin-top: -8px
+    // padding-top: 8px
+    display: inline-flex
     background-color: inherit
 
     &:hover .menu
@@ -192,7 +194,7 @@ nav
       //display: none
       position: absolute
       left: 0
-      top: 58px
+      top: 50px
       padding: 0 20px
       padding-right: 50px
       height: 0px
@@ -724,7 +726,7 @@ input
 
 
 
-.nrbtn
+.nrbtn form
   display: flex
   justify-content: space-between
   align-items: center
@@ -742,6 +744,7 @@ input
   display: inline-block
   overflow: visible
   flex-grow: 1
+  overflow-y: auto visible
 
   .seats
     margin-top: 30px
@@ -758,6 +761,8 @@ input
     // grid-auto-flow: column
     height: calc(100vh - 66px - 80px - 180px)
     width: 100%
+    //overflow-y: auto
+
     //column-gap: 30px
 
     .columns
@@ -784,6 +789,12 @@ input
       display: inline-flex
       align-items: center
       justify-content: center
+      user-select: none
+      // cursor: grab
+
+
+      // &:active
+        cursor: grabbing
 
       &.empty
         opacity: 0.5
