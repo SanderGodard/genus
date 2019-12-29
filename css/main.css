@@ -553,7 +553,26 @@ main .modes div span {
   margin-top: -30px;
   padding: 50px 20px 20px;
 }
-main .classes {
+
+.header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5em;
+  color: #FAFAFA;
+  background-color: #171717;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.classes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -579,7 +598,7 @@ main .classes {
           user-select: none;
   cursor: pointer;
 }
-main .classes.drar {
+.classes.drar {
   cursor: -webkit-grabbing;
   cursor: grabbing;
   -webkit-scroll-snap-points-x: none;
@@ -589,17 +608,18 @@ main .classes.drar {
       -ms-scroll-snap-type: none;
           scroll-snap-type: none;
 }
-main .classes::-webkit-scrollbar {
+.classes::-webkit-scrollbar {
   width: 0px;
   height: 0px;
   display: none;
 }
-main .classes::-webkit-scrollbar-thumb {
+.classes::-webkit-scrollbar-thumb {
   width: 0px;
   height: 0px;
   display: none;
 }
-main .class {
+
+.class {
   -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
   scroll-snap-align: start;
@@ -619,26 +639,14 @@ main .class {
           align-items: flex-start;
   background-color: #FAFAFA;
 }
-main .class > * {
+.class > * {
   width: 100%;
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-main .class .header {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 1.5em;
-  color: #FAFAFA;
-  background-color: #171717;
-  text-transform: uppercase;
-}
-main .class .students {
+.class .students {
   padding: 0px 20px 0px;
   margin-top: 20px;
   -webkit-box-flex: 1;
@@ -646,20 +654,19 @@ main .class .students {
           flex-grow: 1;
   display: block;
   overflow: auto;
-  background-color: #FAFAFA;
 }
-main .class .students p {
+.class .students p {
   display: block;
   margin-bottom: 10px;
 }
-main .class .students[contenteditable="true"] {
+.class .students[contenteditable="true"] {
   padding-bottom: 20px;
   padding-left: 40px;
 }
-main .class .students[contenteditable="true"] p {
+.class .students[contenteditable="true"] p {
   position: relative;
 }
-main .class .students[contenteditable="true"] p::before {
+.class .students[contenteditable="true"] p::before {
   top: 3px;
   width: 2em;
   bottom: 0;
@@ -671,10 +678,11 @@ main .class .students[contenteditable="true"] p::before {
   content: counter(line-counter);
   position: absolute;
 }
-main .class .fot {
+.class .fot {
+  background-color: #FAFAFA;
   padding-top: 0;
 }
-main .class .choices {
+.class .choices {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -685,7 +693,7 @@ main .class .choices {
   width: 100%;
   padding-top: 20px;
 }
-main .class .choices button {
+.class .choices button {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   opacity: 0.5;
@@ -705,16 +713,16 @@ main .class .choices button {
   margin: 0;
   min-width: 0;
 }
-main .class .choices button img {
+.class .choices button img {
   margin: 0;
   width: 28px;
 }
-main .class .choices button:hover {
+.class .choices button:hover {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   opacity: 0.9;
 }
-main .class .choices div button {
+.class .choices div button {
   margin-left: 20px;
 }
 
@@ -818,6 +826,100 @@ input {
 }
 .modalWrapper .modal form button.cancel {
   background-color: #DFD543;
+}
+
+.nrbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 0;
+  width: auto;
+}
+
+.edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.seating {
+  display: inline-block;
+  overflow: visible;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.seating .seats {
+  margin-top: 30px;
+  overflow: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: calc(100vh - 66px - 80px - 180px + 30px);
+  width: calc(100% + 30px);
+}
+.seating .seats .columns {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.seating .seats .sete {
+  margin-bottom: 30px;
+  background-color: #FAFAFA;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 100%;
+  padding: 5px;
+  word-wrap: break-word;
+  word-break: break-all;
+  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /*# sourceMappingURL=main.css.map */

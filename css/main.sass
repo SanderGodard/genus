@@ -513,132 +513,139 @@ main
         padding: 50px 20px 20px
 
 
-  .classes
+
+.header
+  align-items: center
+  justify-content: center
+  font-size: 1.5em
+  color: $W
+  background-color: $SidebarBG
+  text-transform: uppercase
+  width: 100%
+  padding: 20px
+  display: flex
+
+
+
+.classes
+  display: flex
+  flex-flow: row nowrap
+  width: calc(100vw - 160px - 444px)
+  //justify-content: space-evenly
+  overflow-x: auto
+  scroll-snap-type: x
+  scroll-snap-points-x: repeat(calc(350px + 80px))
+  scroll-snap-type: x mandatory
+  position: relative
+  user-select: none
+  cursor: pointer
+
+  &.drar
+    //background: rgba(255,255,255,0.3)
+    cursor: grabbing
+    scroll-snap-points-x: none
+    scroll-snap-type: none
+
+  &::-webkit-scrollbar
+    width: 0px
+    height: 0px
+    display: none
+
+  &::-webkit-scrollbar-thumb
+    width: 0px
+    height: 0px
+    display: none
+
+
+.class
+  box-shadow: $Shadow
+  scroll-snap-align: start
+  margin-right: 80px
+  height: calc(100vh - 66px - 80px - 80px)
+  // height: calc(100% - 80px)
+  width: 320px
+  min-width: 320px
+  display: inline-flex
+  flex-flow: column nowrap
+  align-items: flex-start
+  background-color: $W
+
+  & > *
+    width: 100%
+    padding: 20px
     display: flex
-    flex-flow: row nowrap
-    width: calc(100vw - 160px - 444px)
-    //justify-content: space-evenly
-    overflow-x: auto
-    scroll-snap-type: x
-    scroll-snap-points-x: repeat(calc(350px + 80px))
-    scroll-snap-type: x mandatory
-    position: relative
-    user-select: none
-    cursor: pointer
-
-    &.drar
-      //background: rgba(255,255,255,0.3)
-      cursor: grabbing
-      scroll-snap-points-x: none
-      scroll-snap-type: none
-
-    &::-webkit-scrollbar
-      width: 0px
-      height: 0px
-      display: none
-
-    &::-webkit-scrollbar-thumb
-      width: 0px
-      height: 0px
-      display: none
 
 
+  .students
+    padding: 0px 20px 0px
+    margin-top: 20px
+    flex-grow: 1
+    display: block
+    overflow: auto
+    // background-color: $W
 
-  .class
-    box-shadow: $Shadow
-    scroll-snap-align: start
-    margin-right: 80px
-    height: calc(100vh - 66px - 80px - 80px)
-    // height: calc(100% - 80px)
-    width: 320px
-    min-width: 320px
-    display: inline-flex
-    flex-flow: column nowrap
-    align-items: flex-start
-    background-color: $W
-
-    & > *
-      width: 100%
-      padding: 20px
-      display: flex
-
-    .header
-      align-items: center
-      justify-content: center
-      font-size: 1.5em
-      color: $W
-      background-color: $SidebarBG
-      text-transform: uppercase
-
-    .students
-      padding: 0px 20px 0px
-      margin-top: 20px
-      flex-grow: 1
+    p
       display: block
-      overflow: auto
-      background-color: $W
+      margin-bottom: 10px
+
+    &[contenteditable="true"]
+      padding-bottom: 20px
+      padding-left: 40px
 
       p
-        display: block
-        margin-bottom: 10px
+        position: relative
 
-      &[contenteditable="true"]
-        padding-bottom: 20px
-        padding-left: 40px
-
-        p
-          position: relative
-
-          &::before
-            // right: 0
-            top: 3px
-            width: 2em
-            bottom: 0
-            left: -3em
-            font-size: .7em
-            text-align: right
-            color: lighten($SidebarBG, $amount)
-            counter-increment: line-counter 1
-            content: counter(line-counter)
-            position: absolute
+        &::before
+          // right: 0
+          top: 3px
+          width: 2em
+          bottom: 0
+          left: -3em
+          font-size: .7em
+          text-align: right
+          color: lighten($SidebarBG, $amount)
+          counter-increment: line-counter 1
+          content: counter(line-counter)
+          position: absolute
 
 
-    .fot
-      padding-top: 0
+  .fot
+    background-color: $W
+    padding-top: 0
 
-    .choices
+  .choices
+    display: inline-flex
+    border-top: 1px solid $SidebarBG
+    justify-content: space-between
+    width: 100%
+    padding-top: 20px
+
+
+    button
+      transition: $Fast
+      opacity: .5
+      width: 28px
+      height: 28px
       display: inline-flex
-      border-top: 1px solid $SidebarBG
-      justify-content: space-between
-      width: 100%
-      padding-top: 20px
+      align-items: center
+      justify-content: center
+      background-color: $W
+      padding: 0
+      margin: 0
+      min-width: 0
 
+      img
+        margin: 0
+        width: 28px
+
+      &:hover
+        transition: $Fast
+        opacity: .9
+
+    div
 
       button
-        transition: $Fast
-        opacity: .5
-        width: 28px
-        height: 28px
-        display: inline-flex
-        align-items: center
-        justify-content: center
-        background-color: $W
-        padding: 0
-        margin: 0
-        min-width: 0
-
-        img
-          margin: 0
-          width: 28px
-
-        &:hover
-          transition: $Fast
-          opacity: .9
-
-      div
-
-        button
-          margin-left: 20px
+        margin-left: 20px
 
 
 input
@@ -714,3 +721,63 @@ input
 
         &.cancel
           background-color: $NavBG
+
+
+
+.nrbtn
+  display: flex
+  justify-content: space-between
+  align-items: center
+  min-width: 0
+  width: auto
+
+
+.edit
+  display: flex
+  flex-flow: row nowrap
+
+
+.seating
+  //margin-left: 80px
+  display: inline-block
+  overflow: visible
+  flex-grow: 1
+
+  .seats
+    margin-top: 30px
+    overflow: visible
+    display: flex
+    flex-flow: row nowrap
+    // display: block
+    // grid-column-gap: 30px
+    // column-count: 4
+    justify-content: space-between
+    align-items: stretch
+    height: calc(100vh - 66px - 80px - 180px + 30px)
+    width: calc(100% + 30px)
+    //column-gap: 30px
+
+    .columns
+      // margin: 30px
+      width: 100%
+      flex-grow: 1
+      margin-right: 30px
+      display: flex
+      flex-flow: column nowrap
+      justify-content: space-between
+      align-items: center
+      //height: calc(100vh - 66px - 80px - 180px)
+
+    .sete
+      margin-bottom: 30px
+      background-color: $W
+      flex-grow: 1
+      width: 100%
+      padding: 5px
+      word-wrap: break-word
+      word-break: break-all
+      box-shadow: $Shadow
+      text-align: center
+      display: inline-flex
+      align-items: center
+      justify-content: center

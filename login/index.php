@@ -12,7 +12,7 @@
 		include "../elements/php/sidebar.php";
 	?>
 	<main>
-
+		Make login page
 
 	</main>
 </body>
