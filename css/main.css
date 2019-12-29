@@ -921,5 +921,8 @@ input {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.seating .seats .sete.empty {
+  opacity: 0.5;
+}
 
 /*# sourceMappingURL=main.css.map */

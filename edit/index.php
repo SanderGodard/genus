@@ -42,10 +42,13 @@
 				//echo $col;
 				$eleverpercol = intval($antall / $col);
 				$k = 0;
+				$empty = false;
 				$ekstra = $antall % $col;
 				if ($ekstra !== 0) {
 					$k = -1;
+					$empty = true;
 				}
+				// echo $ekstra;
 
 
 
@@ -54,20 +57,37 @@
 								<div class='seats'>";
 						echo "<div class='columns'>";
 									for ($i=0; $i < $antall; $i++) {
-										if ($k !== 0 && $k == $eleverpercol) {
-											echo "</div><div class='columns'>";
-											$ekstra--;
-											if ($ekstra > 0) {
-												$k = -1;
-											} else {
+										if ($empty == false) {
+											if ($k !== 0 && $k == $eleverpercol) {
 												$k = 0;
+												echo "</div><div class='columns'>";
+											}
+										} else {
+											if ($k !== 0 && $k == $eleverpercol) {
+												$ekstra--;
+												if ($ekstra > 0) {
+													$k = -1;
+													echo "</div><div class='columns'>";
+												} else {
+													if ($ekstra == 0) {
+														$k = 0;
+														echo "</div><div class='columns'>";
+													} else {
+														$k = 0;
+														echo "<div class='sete empty' contenteditable='false'>Empty</div></div><div class='columns'>";
+													}
+												}
 											}
 										}
 										echo "<div class='sete' contenteditable='true'>$seating[$i]</div>";
 										$k++;
 									}
-				echo 		"</div>
-							</div>
+								if ($empty) {
+									echo "<div class='sete empty' contenteditable='false'>Empty</div></div>";
+								} else {
+									echo "</div>";
+								}
+				echo 	"</div>
 						</div>";
 			?>
 		</div>
