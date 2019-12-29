@@ -42,13 +42,9 @@
 				//echo $col;
 				$eleverpercol = intval($antall / $col);
 				$k = 0;
-				if ($antall % $col !== 0) {
-					$ekstra = $antall % $col;
+				$ekstra = $antall % $col;
+				if ($ekstra !== 0) {
 					$k = -1;
-					// $eleverpercol++;
-					// $plasser = $eleverpercol*$col;
-					// if ($plasser >= $antall) {}
-					// if ($eleverpercol >= $) {}
 				}
 
 
