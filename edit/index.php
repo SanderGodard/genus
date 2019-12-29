@@ -39,7 +39,7 @@
 					$col = $_POST["col"];
 					// Put in session and wait for apply
 				}
-				echo $col;
+				//echo $col;
 				$eleverpercol = intval($antall / $col);
 				$k = 0;
 				if ($antall % $col !== 0) {
