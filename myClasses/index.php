@@ -1,6 +1,5 @@
 <?php
 	$page = "My classes";
-	$loggedIn = true;
 	//
 	$title = "genus | $page";
 	include "../elements/php/head.php";

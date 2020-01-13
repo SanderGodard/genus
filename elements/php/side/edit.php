@@ -10,7 +10,7 @@
 <form style="display: flex; flex-direction: column;" action="edit/?class=<?php echo $class; ?>" method="post">
   <button type='button' onclick='delClass("<?php echo $class; ?>")' name='delete'>delete</button>
   <button type='button' onclick='dupClass("<?php echo $class; ?>")' name='makeCopy'>make copy</button>
-  <button type='submit' value='<?php echo $showseating; ?>' name='showSeating'>show seating</button>
+  <button type='button' onclick='toggleSeating()' name='showSeating'>show seating</button>
 </form>
 
 <h2>Columns</h2>
@@ -26,7 +26,6 @@
 
 <div class="center">
   <form action="edit/?class=<?php echo $class; ?>" method="post">
-    <textarea style="display: none;" name="names"></textarea>
     <button type="submit" formaction="myClasses/" class="dark" name="cancel">cancel</button>
     <button type="button" onclick='apply("<?php echo $class; ?>")' name="applyChanges">apply changes</button>
   </form>

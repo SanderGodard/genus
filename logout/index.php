@@ -1,6 +1,11 @@
 <?php
-	$page = "Logged out";
+	$_SESSION["email"] = "";
+	$_SESSION["password"] = "";
+	$email = "";
+	$password = "";
 	$loggedIn = false;
+
+	$page = "Logged out";
 	//
 	$title = "genus | $page";
 	include "../elements/php/head.php";

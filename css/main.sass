@@ -10,6 +10,8 @@ $NavBG: #DFD543
 $W: #FAFAFA
 //$W: #1D1D1D
 
+$err: #FF3333
+
 $amount: 9
 
 $Scale: scale(1.05)
@@ -408,13 +410,18 @@ button, select
   cursor: pointer
   color: $W
 
-  &:hover
+  &:hover, &:focus
     transition: $Fast
     transform: $Scale
 
+  &:active
+    transition: $Fast
+    transform: scale(1.03)
+
 
   &.faded
-    color: darken($W, $amount)
+    opacity: .5
+    // color: darken($W, $amount)
     text-decoration: line-through
 
   option
@@ -566,6 +573,7 @@ main
   height: calc(100vh - 66px - 80px - 80px)
   // height: calc(100% - 80px)
   width: 320px
+  // overflow: visible
   min-width: 320px
   display: inline-flex
   flex-flow: column nowrap
@@ -594,8 +602,10 @@ main
       padding-bottom: 20px
       padding-left: 40px
 
-      p
+      & > *
+        height: 20px
         position: relative
+        margin-bottom: 10px
 
         &::before
           // right: 0
@@ -658,7 +668,7 @@ input
   padding: 20px
 
 
-.modalWrapper
+.modalWrapper, .modalWrappers
   transition: $Fast
   display: flex
   justify-content: center
@@ -670,6 +680,7 @@ input
   bottom: 0
   width: 100vw
   height: 100vh
+  z-index: 15
 
   .bg
     position: fixed
@@ -684,7 +695,7 @@ input
     z-index: 10
 
   .modal
-    z-index: 11
+    z-index: 16
     padding: 0px
     background-color: $W
     color: $SidebarBG
@@ -798,3 +809,155 @@ input
 
       &.empty
         opacity: 0.5
+
+
+.login
+  width: 33%
+  min-width: 400px
+  max-width: 500px
+  display: flex
+  margin: auto
+  flex-flow: column nowrap
+  margin-top: calc(20vh - 80px)
+  color: $SidebarBG
+
+  h1
+    font-size: 7.2em
+    font-family: 'Aleo', 'Segoe UI', sans-serif
+    font-style: italic
+    text-transform: uppercase
+    margin-bottom: 5px
+    padding-bottom: 5px
+    text-align: center
+    border-bottom: 1px solid $SidebarBG
+
+    &:hover
+      color: $NavBG
+
+  p
+    text-align: center
+    font-family: 'Aleo', 'Segoe UI', sans-serif
+    margin-bottom: 10vh
+
+  form
+    width: 95%
+    margin: auto
+
+    label
+      display: flex
+      flex-flow: column nowrap
+      font-size: .75em
+      margin-top: calc(-0.75em * 1.25)
+
+    input
+      width: 100%
+      margin-bottom: 30px
+      font-size: 1.3em
+      background-color: $W
+      border: 1px solid $SidebarBG
+
+      &:focus, &:active
+        border: 1px solid $NavBG
+
+    div
+      display: flex
+      flex-flow: row-reverse nowrap
+      justify-content: space-between
+      align-items: flex-end
+
+      button
+        padding: 20px 0
+        min-width: 0
+        width: 50%
+
+      .forgot
+        font-size: .75em
+        text-decoration: underline
+        border: none
+        background-color: $MainBG
+        color: $SidebarBG
+        width: auto
+        padding: 0
+        text-transform: none
+        align-items: flex-end
+        justify-content: flex-start
+
+
+.separate
+  display: inline-flex
+  width: 100%
+  flex-flow: row nowrap
+  justify-content: space-between
+  align-items: flex-start
+
+
+
+
+#points
+  display: inline-flex
+
+#fraver
+  display: none
+
+.modalWrappers, #points
+
+  .class
+    margin: 0px
+
+    .students
+      button
+        display: block
+        color: $SidebarBG
+        margin: 0
+        background-color: $W
+        border: 0px solid $W
+        min-width: 0px
+        height: auto
+        min-height: 0px
+        font-size: 1em
+        text-transform: none
+
+
+        &:hover, &:focus
+          transform: none
+          color: lighten($SidebarBG, $amount)
+
+      & > *
+        padding: 8px 0
+
+
+      .add
+        display: inline-flex
+        align-self: flex-end
+        flex-flow: row nowrap
+        width: auto
+        align-items: center
+        margin-left: auto
+
+        button
+          width: 1.8em
+          height: 1.8em
+          color: $W
+          background-color: $SidebarBG
+          display: inline-flex
+          text-align: center
+          align-items: center
+          justify-content: center
+          align-self: center
+          margin-right: 10px
+          padding: 4px
+          border-radius: 100%
+          box-shadow: $Shadow
+
+        span
+          width: 2em
+          text-align: right
+
+
+input.err
+  border: 1px solid $err !important
+
+p.err
+  color: $err
+  margin-bottom: 1vh
+  margin-top: calc(-1em - 1vh)

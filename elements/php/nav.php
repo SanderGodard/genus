@@ -19,7 +19,7 @@
     if ($loggedIn) {
       echo "<div class='dropdown-container'>
               <a class='profile' href='javascript:void(0)'>
-                <span class='dropdown'>$lname, $fname</span>
+                <span class='dropdown'>$email</span>
                 <img src='$pfp' alt='Profile'>
               </a>
               <div class='menu menu2'>

@@ -23,7 +23,15 @@
 	<script defer src="js/horiscroll.js"></script>
 	<script defer src="js/modals.js"></script>
 	<script defer src="js/goto.js"></script>
+	<script defer src="js/form.js"></script>
+	<script defer src="js/randomSeating.js"></script>
+	<script defer src="js/absence.js"></script>
+	<script defer src="js/editClass.js"></script>
+	<script defer src="js/credentials.js"></script>
 	<link href="http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500|Aleo:400italic" rel="stylesheet">
 	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
 </head>
+<?php
+	include "user.php";
+?>

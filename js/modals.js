@@ -87,7 +87,7 @@ function delClass(name) {
   form.setAttribute("action", "myClasses/");
 
   text = document.createElement("span");
-  text.innerHTML = "This action will be permanent.<br>Are you sure you really want to <i><b>delete 2IKT-SK</b></i>?";
+  text.innerHTML = "This action will be permanent.<br>Are you sure you really want to <i><b>delete " + name + "</b></i>?";
   cancel = document.createElement("button");
   cancel.setAttribute("type", "button");
   cancel.setAttribute("name", "cancel");
@@ -109,7 +109,9 @@ function delClass(name) {
   form.appendChild(cancel);
   form.appendChild(btn);
 }
-function apply(name) {
+
+
+function applyModal(name) {
   // this.preventDefault();
   makeModal();
   header.innerHTML = "Apply changes to " + name + "?";
@@ -128,12 +130,25 @@ function apply(name) {
   btn.setAttribute("name", "apply");
   btn.innerHTML = "Apply";
   // form.classList.add("tittel");
+  // Hidden text
+  names = document.createElement("input");
+  names.setAttribute("id", "names");
+  names.setAttribute("name", "names");
+  names.setAttribute("style", "display: none;");
+  seats = document.createElement("input");
+  seats.setAttribute("id", "seats");
+  seats.setAttribute("name", "seats");
+  seats.setAttribute("style", "display: none;");
 
   document.body.appendChild(wrapper);
   wrapper.appendChild(bg);
   wrapper.appendChild(modal);
   modal.appendChild(header);
   modal.appendChild(form);
+
+  form.appendChild(names);
+  form.appendChild(seats);
+
   form.appendChild(text);
   form.appendChild(cancel);
   form.appendChild(btn);

@@ -1,7 +1,6 @@
 <?php
 	$class = $_GET["class"];
 	$page = "Edit " . $class;
-	$loggedIn = true;
 	//
 	$title = "genus | $page";
 	include "../elements/php/head.php";
@@ -9,23 +8,52 @@
 ?>
 <body>
 	<?php
-		// variables and logic
-		$students = ["Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen", "Kjetil Olai Bertelsen"]; // Denne skal også være en SQL query
+		$students = ["Add names here", "Example"]; // Denne skal være sql query
+		$seating = $students; // Denne skal fjernes, må bare være her for testing
 
-		$seating = $students; //ofc sin egen sql query
+
+		if (isset($_POST["apply"])) {
+			// print_r($_SESSION);
+			// Fungerer ikke som session, må mellomlagres i form.
+			$students = htmlspecialchars($_POST["names"]);
+			$seating = htmlspecialchars($_POST["seats"]);
+			// echo "str" . $students;
+			// echo "<br>" . $seating;
+
+			$students = explode(",", $students);
+			$seating = explode(",", $seating);
+			$arr = [];
+			$arr2 = [];
+			for ($i=0; $i < count($students); $i++) {
+				$students[$i] = str_replace("<br>", "", $students[$i]);
+				$students[$i] = str_replace("nbsp;", "", $students[$i]);
+				$students[$i] = str_replace("amp;", "", $students[$i]);
+				$students[$i] = str_replace("&", "", $students[$i]);
+				if ($students[$i] !== "") {
+					$arr[$i] = $students[$i];
+				}
+			}
+			for ($i=0; $i < count($seating); $i++) {
+				$seating[$i] = str_replace("<br>", "", $seating[$i]);
+				$seating[$i] = str_replace("nbsp;", "", $seating[$i]);
+				$seating[$i] = str_replace("amp;", "", $seating[$i]);
+				$seating[$i] = str_replace("&", "", $seating[$i]);
+				if ($seating[$i] !== "") {
+					$arr2[$i] = $seating[$i];
+				}
+			}
+
+			$students = $arr;
+			$seating = $arr2;
+			shuffle($seating);
+			// insert into db
+
+		}
+
+
 
 		$antall = count($seating);
 		$col = 4;
-		$query = "SELECT col from classes where class = $class"; // fiks dette
-		//$sqlcol = undefined;
-		if (isset($sqlcol)) {
-			$col = $sqlcol;
-		}
-		if (isset($_POST["col"])) {
-			$col = $_POST["col"];
-			// Put in session and wait for apply
-		}
-		//echo $col;
 		$eleverpercol = intval($antall / $col);
 		$k = 0;
 		$empty = false;
@@ -36,16 +64,6 @@
 		// echo $ekstra;
 
 
-		if (isset($_POST["showSeating"])) {
-			$showseating = $_POST["showSeating"];
-			if ($showseating == true) {
-				$showseating = false;
-			} elseif ($showseating == false) {
-				$showseating = true;
-			}
-		} else {
-			$showseating = false;
-		}
 	?>
 	<?php
 		include "../elements/php/nav.php";
@@ -54,16 +72,14 @@
 	<main>
 		<div class="edit">
 			<?php
-				if ($showseating == false) {
-					echo "<div class='class'>
-					<div class='header'>$class</div>
-					<div class='students' contenteditable='true'>";
-					for ($i=0; $i < count($students); $i++) {
-						echo "<p>$students[$i]</p>";
-					}
-					echo 		"</div>
-					</div>";
+				echo "<div class='class'>
+				<div class='header'>$class</div>
+				<div class='students' onkeyup='listClean()' contenteditable='true'>";
+				for ($i=0; $i < count($students); $i++) {
+					echo "<div>$students[$i]</div>";
 				}
+				echo 		"</div>
+				</div>";
 				// else {
 
 

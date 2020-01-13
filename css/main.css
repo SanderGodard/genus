@@ -436,14 +436,20 @@ button, select {
   cursor: pointer;
   color: #FAFAFA;
 }
-button:hover, select:hover {
+button:hover, button:focus, select:hover, select:focus {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
+button:active, select:active {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
 button.faded, select.faded {
-  color: #e3e3e3;
+  opacity: 0.5;
   text-decoration: line-through;
 }
 button option, select option {
@@ -667,10 +673,12 @@ main .modes div span {
   padding-bottom: 20px;
   padding-left: 40px;
 }
-.class .students[contenteditable="true"] p {
+.class .students[contenteditable="true"] > * {
+  height: 20px;
   position: relative;
+  margin-bottom: 10px;
 }
-.class .students[contenteditable="true"] p::before {
+.class .students[contenteditable="true"] > *::before {
   top: 3px;
   width: 2em;
   bottom: 0;
@@ -738,7 +746,7 @@ input {
   padding: 20px;
 }
 
-.modalWrapper {
+.modalWrapper, .modalWrappers {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   display: -webkit-box;
@@ -757,8 +765,9 @@ input {
   bottom: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 15;
 }
-.modalWrapper .bg {
+.modalWrapper .bg, .modalWrappers .bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -770,8 +779,8 @@ input {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 10;
 }
-.modalWrapper .modal {
-  z-index: 11;
+.modalWrapper .modal, .modalWrappers .modal {
+  z-index: 16;
   padding: 0px;
   background-color: #FAFAFA;
   color: #171717;
@@ -783,7 +792,7 @@ input {
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
 }
-.modalWrapper .modal .tittel {
+.modalWrapper .modal .tittel, .modalWrappers .modal .tittel {
   width: 100%;
   padding: 20px;
   -webkit-box-align: center;
@@ -800,7 +809,7 @@ input {
   font-size: 1.5em;
   margin-bottom: 2vh;
 }
-.modalWrapper .modal form {
+.modalWrapper .modal form, .modalWrappers .modal form {
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -817,10 +826,10 @@ input {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.modalWrapper .modal form input {
+.modalWrapper .modal form input, .modalWrappers .modal form input {
   width: 100%;
 }
-.modalWrapper .modal form button {
+.modalWrapper .modal form button, .modalWrappers .modal form button {
   margin-bottom: 0;
   display: inline-block;
   min-width: 0;
@@ -828,7 +837,7 @@ input {
   margin-top: 6vh;
   background-color: #171717;
 }
-.modalWrapper .modal form button.cancel {
+.modalWrapper .modal form button.cancel, .modalWrappers .modal form button.cancel {
   background-color: #DFD543;
 }
 
@@ -920,6 +929,205 @@ input {
 }
 .seating .seats .sete.empty {
   opacity: 0.5;
+}
+
+.login {
+  width: 33%;
+  min-width: 400px;
+  max-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  margin-top: calc(20vh - 80px);
+  color: #171717;
+}
+.login h1 {
+  font-size: 7.2em;
+  font-family: "Aleo", "Segoe UI", sans-serif;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  border-bottom: 1px solid #171717;
+}
+.login h1:hover {
+  color: #DFD543;
+}
+.login p {
+  text-align: center;
+  font-family: "Aleo", "Segoe UI", sans-serif;
+  margin-bottom: 10vh;
+}
+.login form {
+  width: 95%;
+  margin: auto;
+}
+.login form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  font-size: 0.75em;
+  margin-top: calc(-0.75em * 1.25);
+}
+.login form input {
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 1.3em;
+  background-color: #FAFAFA;
+  border: 1px solid #171717;
+}
+.login form input:focus, .login form input:active {
+  border: 1px solid #DFD543;
+}
+.login form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse nowrap;
+          flex-flow: row-reverse nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.login form div button {
+  padding: 20px 0;
+  min-width: 0;
+  width: 50%;
+}
+.login form div .forgot {
+  font-size: 0.75em;
+  text-decoration: underline;
+  border: none;
+  background-color: #ECECEC;
+  color: #171717;
+  width: auto;
+  padding: 0;
+  text-transform: none;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.separate {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#points {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+#fraver {
+  display: none;
+}
+
+.modalWrappers .class, #points .class {
+  margin: 0px;
+}
+.modalWrappers .class .students button, #points .class .students button {
+  display: block;
+  color: #171717;
+  margin: 0;
+  background-color: #FAFAFA;
+  border: 0px solid #FAFAFA;
+  min-width: 0px;
+  height: auto;
+  min-height: 0px;
+  font-size: 1em;
+  text-transform: none;
+}
+.modalWrappers .class .students button:hover, .modalWrappers .class .students button:focus, #points .class .students button:hover, #points .class .students button:focus {
+  -webkit-transform: none;
+          transform: none;
+  color: #2e2e2e;
+}
+.modalWrappers .class .students > *, #points .class .students > * {
+  padding: 8px 0;
+}
+.modalWrappers .class .students .add, #points .class .students .add {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  width: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+}
+.modalWrappers .class .students .add button, #points .class .students .add button {
+  width: 1.8em;
+  height: 1.8em;
+  color: #FAFAFA;
+  background-color: #171717;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-right: 10px;
+  padding: 4px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+.modalWrappers .class .students .add span, #points .class .students .add span {
+  width: 2em;
+  text-align: right;
+}
+
+input.err {
+  border: 1px solid #FF3333 !important;
+}
+
+p.err {
+  color: #FF3333;
+  margin-bottom: 1vh;
+  margin-top: calc(-1em - 1vh);
 }
 
 /*# sourceMappingURL=main.css.map */

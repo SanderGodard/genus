@@ -21,6 +21,10 @@
           include "side/myclasses.php";
           break;
 
+        case 'Picker':
+          include "side/picker.php";
+          break;
+
         case 'Log in':
           include "side/login.php";
           break;
