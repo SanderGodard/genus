@@ -1,5 +1,5 @@
 <?php
-	$class = $_GET["class"];
+	$class = htmlspecialchars($_GET["class"]);
 	$page = "Edit " . $class;
 	//
 	$title = "genus | $page";
@@ -12,7 +12,7 @@
 		$seating = $students; // Denne skal fjernes, må bare være her for testing
 
 
-		if (isset($_POST["apply"])) {
+		if (isset(htmlspecialchars($_POST["apply"]))) {
 			// print_r($_SESSION);
 			// Fungerer ikke som session, må mellomlagres i form.
 			$students = htmlspecialchars($_POST["names"]);

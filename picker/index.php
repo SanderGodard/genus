@@ -1,9 +1,9 @@
 <?php
 	$chosenClass = false;
 	$class = "not found";
-	if (isset($_GET["class"])) {
+	if (isset(htmlspecialchars($_GET["class"]))) {
 		// code...
-		$class = $_GET["class"];
+		$class = htmlspecialchars($_GET["class"]);
 		$chosenClass = true;
 	}
 	$page = "Picker";

@@ -27,10 +27,10 @@
 
 
   function loginCheck() {
-    if (isset($_POST["login"])) {
-      if (isset($_POST["email"]) && isset($_POST["password"])) {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+    if (isset(htmlspecialchars($_POST["login"]))) {
+      if (isset(htmlspecialchars($_POST["email"])) && isset(htmlspecialchars($_POST["password"]))) {
+        $email = htmlspecialchars($_POST["email"]);
+        $password = htmlspecialchars($_POST["password"]);
         // $password = password_hash($password, PASSWORD_BCRYPT, ["doesthiswork?", 10]);
         if (testCred($email, $password)) {
           // Set creds i session var
@@ -86,7 +86,7 @@
     if (testCred($email, $password) == false) {
       $loginFail = true;
     }
-    if (isset($_POST["email"]) == false) {
+    if (isset(htmlspecialchars($_POST["email"])) == false) {
       $loginFail = false;
     }
   } elseif (loginCheck() == false) {
